@@ -1,0 +1,27 @@
+{
+  "React Native Fuctional Component": {
+    "prefix": "rnfc",
+    "body": [
+      "import React from 'react';",
+      "import { View, StyleSheet } from 'react-native';",
+      "",
+      "const ${TM_FILENAME_BASE} = (props) => {",
+      "  return (",
+      "    <View style={styles.container}>$0</View>",
+      "  );",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+      "    container: {",
+      "",
+      "    }",
+      "})",
+      "",
+      "export default ${TM_FILENAME_BASE}"
+    ]
+  },
+  "Material Community Icons": {
+    "prefix": "imc",
+    "body": ["import { MaterialCommunityIcons } from '@expo/vector-icons';"]
+  }
+}
