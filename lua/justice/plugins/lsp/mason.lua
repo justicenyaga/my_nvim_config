@@ -51,6 +51,10 @@ return {
         "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
+        "golangci-lint", -- Go linter
+        "gofumpt", -- Go formatter
+        "goimports", -- Go formatter
+        "golines", -- Go formatter
       },
     })
   end,
