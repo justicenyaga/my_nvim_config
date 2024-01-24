@@ -64,6 +64,17 @@ Before diving into the configuration, ensure you have the following prerequisite
    git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
    ```
 
+7. **_For WSL users_, Download win32yank to interact with windows clipboard:**
+
+   Download win32yank binary here [https://github.com/equalsraf/win32yank/releases](https://github.com/equalsraf/win32yank/releases)
+   then copy it to `/usr/local/bin`
+
+   Add execution permissions
+
+   ```bash
+   chmod +x win32yank.exe
+   ```
+
 ## Neovim Plugin Installation
 
 1. **Open Neovim:**
@@ -87,5 +98,22 @@ Before diving into the configuration, ensure you have the following prerequisite
    ```
 
    This step is crucial for the proper functioning of the snippets plugin.
+
+5. **_For WSL users_: To interact with system clipboard**, uncomment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua`
+
+   ```lua
+   -- vim.g.clipboard = {
+   --   name = "win32yank-wsl",
+   --   copy = {
+   --     ["+"] = "win32yank.exe -i --crlf",
+   --     ["*"] = "win32yank.exe -i --crlf",
+   --   },
+   --   paste = {
+   --     ["+"] = "win32yank.exe -o --lf",
+   --     ["*"] = "win32yank.exe -o --lf",
+   --   },
+   --   cache_enabled = true,
+   -- }
+   ```
 
 That's it! Your Neovim environment is now configured and ready for use. Customize further based on your preferences, and happy coding!
