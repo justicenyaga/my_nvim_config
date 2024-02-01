@@ -1,26 +1,41 @@
 # My Neovim Configuration Setup Guide
 
 Welcome to my Neovim configuration! Follow these steps to set up and enhance your Neovim experience.
+![My Neovim](nvim.png)
 
 ## Prerequisites
 
 Before diving into the configuration, ensure you have the following prerequisites installed:
 
-1. **Node Packages:**
+1. **Ensure you have Neovim v0.9 and Above:**
+   Ensure that you have Neovim version 0.9 or above installed. Check your Neovim version using:
+
+   ```bash
+   nvim --version
+   ```
+
+2. **Install python3.10-venv:**
+   Install the `python3.10-venv` package using the following command:
+
+   ```bash
+   sudo apt install python3.10-venv
+   ```
+
+3. **Node Packages:**
    Install neovim and tree-sitter node packages by running the following command:
 
    ```bash
    npm i -g neovim tree-sitter
    ```
 
-2. **pynvim Package:**
+4. **pynvim Package:**
    Install the pynvim package using pip:
 
    ```bash
    pip install -U pynvim
    ```
 
-3. **Go Language Server (gopls):**
+5. **Go Language Server (gopls):**
    For Go language support, you need to install the Go Language Server (gopls). Run the following command:
 
    ```bash
@@ -43,22 +58,8 @@ Before diving into the configuration, ensure you have the following prerequisite
 
    ```
 
-4. **Install python3.10-venv:**
-   Install the `python3.10-venv` package using the following command:
-
-   ```bash
-   sudo apt install python3.10-venv
-   ```
-
-5. **Ensure Neovim v0.9 and Above:**
-   Ensure that you have Neovim version 0.9 or above installed. Check your Neovim version using:
-
-   ```bash
-   nvim --version
-   ```
-
 6. **Clone Configuration Repository:**
-   Clone the Neovim configuration repository from `https://github.com/justicenyaga/my_nvim_config` to `~/.config/nvim`:
+   Clone my Neovim configuration repository to `~/.config/nvim`:
 
    ```bash
    git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
@@ -75,6 +76,12 @@ Before diving into the configuration, ensure you have the following prerequisite
    chmod +x win32yank.exe
    ```
 
+   Uninstall `xclip` if you have it installed to avoid potential conflit as it would be used as the default:
+
+   ```bash
+   sudo apt remove xclip
+   ```
+
 ## Neovim Plugin Installation
 
 1. **Open Neovim:**
@@ -83,21 +90,24 @@ Before diving into the configuration, ensure you have the following prerequisite
    nvim
    ```
 
-2. **Allow the plugins to load.** Once the plugins are installed, exit Neovim.
+2. **Allow the plugins to load.**
 
-3. **Navigate to the ES7/Javascript/React snippets plugin directory:**
+   You can issue the command `:Lazy` to view the progress
+
+   Once the plugins are installed, exit Neovim.
+
+3. **Compile the ES7/Javascript/React snippets plugin:**
 
    ```bash
    cd ~/.local/share/nvim/lazy/vscode-es7-javascript-react-snippets
-   ```
-
-4. **Compile the plugin:**
-
-   ```bash
    yarn install --frozen-lockfile && yarn compile
    ```
 
    This step is crucial for the proper functioning of the snippets plugin.
+
+4. **Customize Your Language Server Protocol (LPS), Linters and Formatters Installation:**
+
+   Open up Mason using the command `:Mason` to install your preferred LPS, Linters and Formatters and tailor it to your specific needs. This allows you to customize and optimize your Language Server Protocol setup for an enhanced coding experience.
 
 5. **_For WSL users_: To interact with system clipboard**, uncomment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua`
 
