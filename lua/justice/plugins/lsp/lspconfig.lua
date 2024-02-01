@@ -138,23 +138,23 @@ return {
     })
 
     -- configure go server (gopls)
-    -- lspconfig["gopls"].setup({
-    --   cmd = { "gopls" },
-    --   on_attach = on_attach,
-    --   capabilities = capabilities,
-    --   filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    --   root_dir = lspconfig.util.root_pattern("go.mod", "go.work", ".git"),
-    --   settings = {
-    --     gopls = {
-    --       completeUnimported = true,
-    --       usePlaceholders = true,
-    --       analyses = {
-    --         unusedparams = true,
-    --       },
-    --       -- staticcheck = true,
-    --     },
-    --   },
-    -- })
+    lspconfig["gopls"].setup({
+      cmd = { "gopls" },
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = lspconfig.util.root_pattern("go.mod", "go.work", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+          -- staticcheck = true,
+        },
+      },
+    })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
