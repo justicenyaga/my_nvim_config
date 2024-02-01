@@ -35,6 +35,13 @@ Before diving into the configuration, ensure you have the following prerequisite
    pip install -U pynvim
    ```
 
+   Ensure that the `python` command points to `python3` by adding the following alias to your `.bashrc` or `.zshrc`:
+
+   ```bash
+   alias python=python3
+
+   ```
+
 5. **Clone Configuration Repository:**
    Clone my Neovim configuration repository to `~/.config/nvim`:
 
@@ -107,7 +114,7 @@ That's it! Your Neovim environment is now configured and ready for use. Customiz
 
 ## Recommendations
 
-Congratulations on setting up your Neovim environment! If you're looking to further enhance your terminal experience, I highly recommend checking out [my tmux configuration post](http://localhost:1313/posts/202401-my-tmux-configuration/). Tmux is a powerful terminal multiplexer that allows you to organize and manage multiple terminal sessions effortlessly.
+Congratulations on setting up your Neovim environment! If you're looking to further enhance your terminal experience, I highly recommend checking out [my tmux configuration post](http://justicenyaga.me/posts/202401-my-tmux-configuration/). Tmux is a powerful terminal multiplexer that allows you to organize and manage multiple terminal sessions effortlessly.
 
 Discover how to optimize your workflow, split your terminal into panes, and efficiently navigate through different sessions. Tmux can significantly boost your productivity and provide a seamless terminal experience alongside your Neovim setup.
 
