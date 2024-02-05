@@ -3,4 +3,5 @@ return {
   "wakatime/vim-wakatime",
   "tpope/vim-commentary",
   "ThePrimeagen/vim-be-good",
+  "mfussenegger/nvim-jdtls", -- java lsp
 }

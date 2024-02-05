@@ -9,6 +9,9 @@ return {
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
+    -- function to ignore the jdtls
+    local noop = function() end
+
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -69,6 +72,16 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+
+    require("mason-lspconfig").setup_handlers({
+      function(server_name)
+        lspconfig[server_name].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+        })
+      end,
+      ["jdtls"] = noop,
+    })
 
     -- configure html server
     lspconfig["html"].setup({
