@@ -35,7 +35,7 @@ Before diving into the configuration, ensure you have the following prerequisite
     python3 -m pip install pynvim
    ```
 
-   Ensure that the `python` command points to `python3` by adding the following alias to your `.bashrc` or `.zshrc`:
+   Ensure that the `python` command points to `python3` by adding the following alias in your `.bashrc` or `.zshrc`:
 
    ```bash
    alias python=python3
@@ -44,20 +44,36 @@ Before diving into the configuration, ensure you have the following prerequisite
 
 5. **Install ripgrep:**
 
-   For telescope live_grep to work, you need to have ripgrep package. Install it using:
+   For telescope live_grep to work, you need to have both ripgrep and fd packages. Install them using:
 
    ```bash
-   sudo apt install ripgrep
+   sudo apt install ripgrep fd-find
    ```
 
-6. **Clone Configuration Repository:**
+6. **Go Language Server (gopls):**
+   For Go language support, you need to install the Go Language Server (gopls). Run the following command:
+
+   ```bash
+   go install golang.org/x/tools/gopls@latest
+   ```
+
+   After installation, set up the required environment variables in your shell configuration file (e.g., `.bashrc` or `.zshrc`):
+
+   ```bash
+   export GOPATH=~/go
+   export GOROOT=/usr/local/go
+   export PATH=$PATH:/usr/local/go/bin
+   export PATH=$PATH:~/go/bin
+   ```
+
+7. **Clone Configuration Repository:**
    Clone my Neovim configuration repository to `~/.config/nvim`:
 
    ```bash
    git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
    ```
 
-7. **_For WSL users_, Download win32yank to interact with windows clipboard:**
+8. **_For WSL users_, Download win32yank to interact with windows clipboard:**
 
    Download win32yank binary here [https://github.com/equalsraf/win32yank/releases](https://github.com/equalsraf/win32yank/releases)
    then copy it to `/usr/local/bin`
