@@ -117,7 +117,11 @@ Before diving into the configuration, ensure you have the following prerequisite
 
    Open up Mason using the command `:Mason` to install your preferred LPS, Linters and Formatters and tailor it to your specific needs. This allows you to customize and optimize your Language Server Protocol setup for an enhanced coding experience.
 
-5. **_For WSL users_: To interact with system clipboard**, uncomment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua`
+5. **nvim-jdtls Configuration**
+
+   Checkout [my nvim-jdtls blog post](https://justicenyaga.me/posts/202402-configuring-java-lsp-for-neovim-with-nvim-jdtls) on how to configure the Java LSP
+
+6. **_For WSL users_: To interact with system clipboard**, uncomment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua`
 
    ```lua
    -- vim.g.clipboard = {
