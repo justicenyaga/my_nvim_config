@@ -42,6 +42,7 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
+        "jdtls",
         -- "gopls",
       },
       -- auto-install configured servers (with lspconfig)
