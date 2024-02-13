@@ -20,6 +20,14 @@ return {
     dap.set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
     dap.configurations = {
+      go = {
+        {
+          type = "go",
+          name = "Debug",
+          request = "launch",
+          program = "${file}",
+        },
+      },
       javascript = {
         {
           type = "node2",
@@ -41,6 +49,15 @@ return {
           protocol = "inspector",
           console = "integratedTerminal",
         },
+      },
+    }
+
+    dap.adapters.go = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = vim.fn.stdpath("data") .. "/mason/bin/dlv",
+        args = { "dap", "-l", "127.0.0.1:${port}" },
       },
     }
 
