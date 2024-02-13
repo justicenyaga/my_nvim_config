@@ -66,8 +66,8 @@ return {
     mason_nvim_dap.setup({
       -- list of debuger adapters for mason to install
       ensure_installed = {
-        -- "delve", -- Go debugger
-        "node2", -- js debugger
+        "delve", -- Go debugger
+        "node2", -- Node debugger
       },
     })
   end,
