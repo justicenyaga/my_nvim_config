@@ -66,14 +66,24 @@ Before diving into the configuration, ensure you have the following prerequisite
    export PATH=$PATH:~/go/bin
    ```
 
-7. **Clone Configuration Repository:**
+7. **java-debug**
+
+   To enable debugging java programs, you need to load the `java-debug` extension. Install it using to your neovim data folder `~/.local/share/nvim/` using the following commands:
+
+   ```bash
+   git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
+   cd ~/.local/share/nvim/java-debug
+   ./mvnw clean install
+   ```
+
+8. **Clone Configuration Repository:**
    Clone my Neovim configuration repository to `~/.config/nvim`:
 
    ```bash
    git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
    ```
 
-8. **_For WSL users_, Download win32yank to interact with windows clipboard:**
+9. **_For WSL users_, Download win32yank to interact with windows clipboard:**
 
    Download win32yank binary here [https://github.com/equalsraf/win32yank/releases](https://github.com/equalsraf/win32yank/releases)
    then copy it to `/usr/local/bin`

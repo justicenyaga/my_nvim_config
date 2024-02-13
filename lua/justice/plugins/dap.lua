@@ -20,6 +20,14 @@ return {
     dap.set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
     dap.configurations = {
+      java = {
+        {
+          type = "java",
+          name = "Debug",
+          request = "launch",
+          program = "${file}",
+        },
+      },
       go = {
         {
           type = "go",
