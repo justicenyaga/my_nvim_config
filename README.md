@@ -44,7 +44,7 @@ Before diving into the configuration, ensure you have the following prerequisite
 
 5. **Install ripgrep:**
 
-   For telescope live_grep to work, you need to have both ripgrep and fd packages. Install them using:
+   For telescope live_grep to work, you need to have ripgrep and fd packages. Install them using:
 
    ```bash
    sudo apt install ripgrep fd-find

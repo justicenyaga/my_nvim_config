@@ -3,6 +3,7 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
     -- import mason
@@ -11,7 +12,11 @@ return {
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
 
+    -- import mason-tool-installer
     local mason_tool_installer = require("mason-tool-installer")
+
+    -- import mason-nvim-dap
+    local mason_nvim_dap = require("mason-nvim-dap")
 
     -- enable mason and configure icons
     mason.setup({
@@ -55,6 +60,14 @@ return {
         "gofumpt", -- Go formatter
         "goimports", -- Go formatter
         "golines", -- Go formatter
+      },
+    })
+
+    mason_nvim_dap.setup({
+      -- list of debuger adapters for mason to install
+      ensure_installed = {
+        -- "delve", -- Go debugger
+        "node2", -- js debugger
       },
     })
   end,
