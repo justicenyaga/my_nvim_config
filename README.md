@@ -1,7 +1,20 @@
-# My Neovim Configuration Setup Guide
+# Neovim Configuration
 
-Welcome to my Neovim configuration! Follow these steps to set up and enhance your Neovim experience.
 ![My Neovim](nvim.png)
+
+This repository contains my neovim configuration, including key mappings, plugins and other settings. I'm primarily working day-to-day in Node.js, React, Python, Golang and Java.
+
+## Features
+
+- Plugins managed with [lazy.nvim](https://github.com/folke/lazy.nvim)
+- Syntax highlighting with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- LSPs installed with [Mason](https://github.com/williamboman/mason.nvim) and configured using [lspconfig](https://github.com/neovim/nvim-lspconfig)
+- Debuggers installed and configured with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim) for search
+- [lualine](https://github.com/nvim-lualine/lualine.nvim) for status bar
+- [conform](https://github.com/stevearc/conform.nvim) for formatting
+- [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorscheme
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) file explorer with [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 
 ## Prerequisites
 
@@ -68,7 +81,7 @@ Before diving into the configuration, ensure you have the following prerequisite
 
 7. **java-debug**
 
-   To enable debugging java programs, you need to load the `java-debug` extension. Install it using to your neovim data folder `~/.local/share/nvim/` using the following commands:
+   To debug java programs, you need to load the `java-debug` extension. Install it on your neovim data folder `~/.local/share/nvim/` using the following commands:
 
    ```bash
    git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
