@@ -1,6 +1,12 @@
 # Neovim Configuration
 
-![My Neovim](nvim.png)
+![Editor](nvim.png)
+
+![Diff View](diffview.png)
+
+![Git Graph](git-graph.png)
+
+![Debugging](debugging.png)
 
 This repository contains my neovim configuration, including key mappings, plugins and other settings. I'm primarily working day-to-day in Node.js, React, Python, Golang and Java.
 
@@ -8,13 +14,24 @@ This repository contains my neovim configuration, including key mappings, plugin
 
 - Plugins managed with [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Syntax highlighting with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- Code snippets and code auto-completion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - LSPs installed with [Mason](https://github.com/williamboman/mason.nvim) and configured using [lspconfig](https://github.com/neovim/nvim-lspconfig)
+- Code formatting with [conform](https://github.com/stevearc/conform.nvim)
 - Debuggers installed and configured with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-- [telescope](https://github.com/nvim-telescope/telescope.nvim) for search
-- [lualine](https://github.com/nvim-lualine/lualine.nvim) for status bar
-- [conform](https://github.com/stevearc/conform.nvim) for formatting
+- Terminal integration with [fterm](https://github.com/numToStr/FTerm.nvim)
+- Fuzzy searching with [telescope](https://github.com/nvim-telescope/telescope.nvim)
+- Git decorations to reflect changes in files using [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- Git integration via [fugitive](https://github.com/tpope/vim-fugitive)
+- Git branch/commit/diff viewing via [diffview](https://github.com/sindrets/diffview.nvim)
+- Beautiful and powerful git graph via [vim-flog](https://github.com/rbong/vim-flog)
+- Faster code commenting with [vim-commentary](https://github.com/tpope/vim-commentary)
+- Fold management with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- Beautiful status bar via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorscheme
-- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) file explorer with [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) file explorer with [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for the icons
+- Beautiful UI via [dressing.nvim](https://github.com/stevearc/dressing.nvim)
+- Animated GUI notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- Tabs and Splits navigation via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
 ## Prerequisites
 
