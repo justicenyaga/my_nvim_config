@@ -37,10 +37,30 @@ local function branch_exists(branch)
   return false
 end
 
+local function get_tab_by_buf_name(name, starts_with)
+  for _, tab in ipairs(api.nvim_list_tabpages()) do
+    local win = api.nvim_tabpage_get_win(tab)
+    local buf = api.nvim_win_get_buf(win)
+    local buf_name = api.nvim_buf_get_name(buf)
+    if starts_with then
+      if string_starts(buf_name, name) then
+        return tab
+      end
+    else
+      local base_name = basename(buf_name)
+      if base_name == name then
+        return tab
+      end
+    end
+  end
+  return -1
+end
+
 return {
   basename = basename,
   branch_exists = branch_exists,
   get_branch_name = get_branch_name,
+  get_tab_by_buf_name = get_tab_by_buf_name,
   press_enter = press_enter,
   string_starts = string_starts,
 }
