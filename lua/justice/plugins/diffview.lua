@@ -47,22 +47,22 @@ return {
     end)
 
     -- Toggle viewing all current changes
-    keymap.set("n", "<leader>gc", function()
-      local isDiff = fn.getwinvar(nil, "&diff")
-      local bufName = api.nvim_buf_get_name(0)
-      if isDiff ~= 0 or util.string_starts(bufName, "diff") then
-        -- Close diffview if it's already open
-        cmd.bd()
-        cmd.tabprev()
-      else
-        -- Open diffview with all current changes
-        cmd.DiffviewOpen()
-        util.press_enter()
-      end
-    end)
-    --
+    -- keymap.set("n", "<leader>gda", function()
+    -- local isDiff = fn.getwinvar(nil, "&diff")
+    -- local bufName = api.nvim_buf_get_name(0)
+    -- if isDiff ~= 0 or util.string_starts(bufName, "diff") then
+    --   -- Close diffview if it's already open
+    --   cmd.bd()
+    --   cmd.tabprev()
+    -- else
+    --   -- Open diffview with all current changes
+    --   cmd.DiffviewOpen()
+    --   util.press_enter()
+    -- end
+    -- end)
+
     -- Review changes against main branch and the current HEAD (will break if no main branch present)
-    keymap.set("n", "<leader>gr", function()
+    keymap.set("n", "<leader>gR", function()
       local isDiff = fn.getwinvar(nil, "&diff")
       local bufName = api.nvim_buf_get_name(0)
 
@@ -92,8 +92,8 @@ return {
       end
     end)
 
-    -- Toggle diffview without any action
-    keymap.set("n", "<leader>go", function()
+    -- Toggle Open/Close diffview
+    keymap.set("n", "<leader>gd", function()
       local isDiff = fn.getwinvar(nil, "&diff")
       local bufName = api.nvim_buf_get_name(0)
       if isDiff ~= 0 or util.string_starts(bufName, "diff") then
@@ -101,7 +101,7 @@ return {
         cmd.tabclose()
         cmd.tabprev()
       else
-        -- Open diffview without any specific action
+        -- Open diffview
         cmd.DiffviewOpen()
       end
     end)
@@ -151,8 +151,8 @@ return {
         -- The `view` bindings are active in the diff buffers, only when the current
         -- tabpage is a Diffview.
         view = {
-          ["<C-n>"] = cb("select_next_entry"), -- Open the diff for the next file
-          ["<C-p>"] = cb("select_prev_entry"), -- Open the diff for the previous file
+          ["<C-j>"] = cb("select_next_entry"), -- Open the diff for the next file
+          ["<C-k>"] = cb("select_prev_entry"), -- Open the diff for the previous file
           ["<CR>"] = cb("goto_file_edit"), -- Open the file in a new split in previous tabpage
           ["<C-w><C-f>"] = cb("goto_file_split"), -- Open the file in a new split
           ["<C-w>gf"] = cb("goto_file_tab"), -- Open the file in a new tabpage
@@ -193,8 +193,8 @@ return {
           ["<cr>"] = cb("select_entry"),
           ["o"] = cb("select_entry"),
           ["<2-LeftMouse>"] = cb("select_entry"),
-          ["<C-n>"] = cb("select_next_entry"),
-          ["<C-p>"] = cb("select_prev_entry"),
+          ["<C-j>"] = cb("select_next_entry"),
+          ["<C-k>"] = cb("select_prev_entry"),
           ["gf"] = cb("goto_file"),
           ["<C-w><C-f>"] = cb("goto_file_split"),
           ["<C-w>gf"] = cb("goto_file_tab"),
