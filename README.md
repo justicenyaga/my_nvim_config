@@ -26,7 +26,9 @@ This repository contains my neovim configuration, including key mappings, plugin
 - Git integration via [fugitive](https://github.com/tpope/vim-fugitive)
 - Git branch/commit/diff viewing via [diffview](https://github.com/sindrets/diffview.nvim)
 - Beautiful and powerful git graph via [vim-flog](https://github.com/rbong/vim-flog)
-- Faster code commenting with [vim-commentary](https://github.com/tpope/vim-commentary)
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) and [VS Code ES7](https://github.com/r5n-dev/vscode-react-javascript-snippets) snippets
+- Faster code commenting with [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- Quicky add/delete/change delimiter pairs with[nvim-surround](https://github.com/kylechui/nvim-surround)
 - Fold management with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - Beautiful status bar via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorscheme
