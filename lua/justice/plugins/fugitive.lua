@@ -101,7 +101,7 @@ return {
 
     -- Cherry Pick
     keymap.set("n", "<leader>gyi", ":Git cherry-pick<Space>", map_opts2) -- Populate "git cherry-pick "
-    keymap.set("n", "<leader>gyy", ":Git cherry-pick --continue<CR>", map_opts2) -- Continue with the cherry-pick (after fixing conficts)
+    keymap.set("n", "<leader>gyr", ":Git cherry-pick --continue<CR>", map_opts2) -- Continue with the cherry-pick (after fixing conficts)
     keymap.set("n", "<leader>gyx", ":Git cherry-pick --abort<CR>", map_opts2) -- Abort cherry-pick (due to conflicts)
 
     -- Reset
