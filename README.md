@@ -232,7 +232,7 @@ vim.g.clipboard = {
 
 That's it! Your Neovim environment is now configured and ready for use. Customize further based on your preferences, and happy coding!
 
-<br/>
+Checkout [my neovim keymaps article](https://justicenyaga.me/posts/202402-my-neovim-keymaps) for a detailed walkthrough of the keymaps configured in my Neovim setup.
 
 ## Recommendations
 
