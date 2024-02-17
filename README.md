@@ -1,5 +1,9 @@
 # Neovim Configuration
 
+This repository contains my neovim configuration, including key mappings, plugins and other settings. I'm primarily working day-to-day in Node.js, React, Python, Golang and Java.
+
+## Screenshots
+
 ![Editor](nvim.png)
 
 ![Diff View](diffview.png)
@@ -7,8 +11,6 @@
 ![Git Graph](git-graph.png)
 
 ![Debugging](debugging.png)
-
-This repository contains my neovim configuration, including key mappings, plugins and other settings. I'm primarily working day-to-day in Node.js, React, Python, Golang and Java.
 
 ## Features
 
@@ -37,148 +39,198 @@ This repository contains my neovim configuration, including key mappings, plugin
 
 Before diving into the configuration, ensure you have the following prerequisites installed:
 
-1. **Ensure you have Neovim v0.9 and Above:**
-   Ensure that you have Neovim version 0.9 or above installed. Check your Neovim version using:
+### 1. **Ensure you have Neovim v0.9 and Above:**
 
-   ```bash
-   nvim --version
-   ```
+Ensure that you have Neovim version 0.9 or above installed. Check your Neovim version using:
 
-2. **Install python3.10-venv:**
-   Install the `python3.10-venv` package using the following command:
+```bash
+nvim --version
+```
 
-   ```bash
-   sudo apt install python3.10-venv
-   ```
+### 2. **Install python3.10-venv:**
 
-3. **Node Packages:**
-   Install neovim and tree-sitter node packages by running the following command:
+Install the `python3.10-venv` package using the following command:
 
-   ```bash
-   npm i -g neovim tree-sitter
-   ```
+```bash
+sudo apt install python3.10-venv
+```
 
-4. **pynvim Package:**
-   Install the pynvim package using pip:
+### 3. **Install Go (Golang):**
 
-   ```bash
-    python3 -m pip install pynvim
-   ```
+Certain plugins in my configuration rely on Go. Ensure a seamless experience by installing Go using the official [installation guide](https://go.dev/doc/install).
 
-   Ensure that the `python` command points to `python3` by adding the following alias in your `.bashrc` or `.zshrc`:
+After installation, set up the required environment variables in your shell configuration file (e.g., `.bashrc` or `.zshrc`):
 
-   ```bash
-   alias python=python3
+```bash
+export GOPATH=~/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
+```
 
-   ```
+### 4. **Node Packages:**
 
-5. **Install ripgrep:**
+Install neovim and tree-sitter node packages by running the following command:
 
-   For telescope live_grep to work, you need to have ripgrep and fd packages. Install them using:
+```bash
+npm i -g neovim tree-sitter
+```
 
-   ```bash
-   sudo apt install ripgrep fd-find
-   ```
+### 5. **pynvim Package:**
 
-6. **Go Language Server (gopls):**
-   For Go language support, you need to install the Go Language Server (gopls). Run the following command:
+Install the pynvim package using pip:
 
-   ```bash
-   go install golang.org/x/tools/gopls@latest
-   ```
+```bash
+python3 -m pip install -U pynvim
+```
 
-   After installation, set up the required environment variables in your shell configuration file (e.g., `.bashrc` or `.zshrc`):
+Ensure that the `python` command points to `python3` by adding the following alias on your `.bashrc` or `.zshrc`:
 
-   ```bash
-   export GOPATH=~/go
-   export GOROOT=/usr/local/go
-   export PATH=$PATH:/usr/local/go/bin
-   export PATH=$PATH:~/go/bin
-   ```
+```bash
+alias python=python3
 
-7. **java-debug**
+```
 
-   To debug java programs, you need to load the `java-debug` extension. Install it on your neovim data folder `~/.local/share/nvim/` using the following commands:
+### 6. **Telescope requirements:**
 
-   ```bash
-   git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
-   cd ~/.local/share/nvim/java-debug
-   ./mvnw clean install
-   ```
+For telescope to work without any issues, you need to have both ripgrep and fd packages. Install them using:
 
-8. **Clone Configuration Repository:**
-   Clone my Neovim configuration repository to `~/.config/nvim`:
+```bash
+sudo apt install ripgrep fd-find
+```
 
-   ```bash
-   git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
-   ```
+### 7. **_Optional:_ Go Language Server (gopls):**
 
-9. **_For WSL users_, Download win32yank to interact with windows clipboard:**
+For Go developers, consider installing the Go Language Server (gopls) to enhance your Go programming experience. Run the following command:
 
-   Download win32yank binary here [https://github.com/equalsraf/win32yank/releases](https://github.com/equalsraf/win32yank/releases)
-   then copy it to `/usr/local/bin`
+```bash
+go install golang.org/x/tools/gopls@latest
+```
 
-   Add execution permissions
+### 8. **_Optional:_ Java**
 
-   ```bash
-   chmod +x win32yank.exe
-   ```
+For Java developer, follow the following steps:
 
-   Uninstall `xclip` if you have it installed to avoid potential conflit as it would be used as the default:
+- Ensure you are running JRE 17 and above
+  ```bash
+  java --version
+  ```
+- Ensure `JAVA_HOME` environment variable points to the JDK directory. Identify the correct path using:
+  ```bash
+  sudo update-alternatives --config java
+  ```
+  Set `JAVA_HOME` in your `.bashrc` or `.zshrc`:
+  ```bash
+     export JAVA_HOME=/path/to/openjdk
+  ```
+  For example:
+  ```bash
+  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+  ```
+- Download and extract a snapshot build from [http://download.eclipse.org/jdtls/snapshots/](http://download.eclipse.org/jdtls/snapshots/) using:
+  ```bash
+  wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.31.0-202312211634.tar.gz && sudo tar -C /usr/local -xzf jdt-language-server-1.31.0-202312211634.tar.gz
+  ```
 
-   ```bash
-   sudo apt remove xclip
-   ```
+### 9. **Clone Configuration Repository:**
+
+Clone my Neovim configuration repository to `~/.config/nvim`:
+
+```bash
+git clone https://github.com/justicenyaga/my_nvim_config.git ~/.config/nvim
+```
+
+### 10. **_Optional:_ win32yank for WSL**
+
+For WSL users, install `win32yank` for clipboard interaction between Windows and WSL by following these steps:
+
+1. **Download win32yank binary:**
+
+   - Visit [https://github.com/equalsraf/win32yank/releases](https://github.com/equalsraf/win32yank/releases) to download the `win32yank` binary.
+
+2. **Copy it to `/usr/local/bin`:**
+
+   - After downloading the binary, copy it to the `/usr/local/bin` directory.
+
+3. **Add execution permissions:**
+
+   - Set execution permissions for `win32yank.exe` using the following command:
+     ```bash
+     chmod +x win32yank.exe
+     ```
+
+4. **Uninstall `xclip` and `xsel`:**
+   - To avoid potential conflicts, uninstall `xclip` and `xsel` if they are installed on your system as they would be used by default.
+     ```bash
+     sudo apt remove xclip
+     sudo apt remove xsel   # if it exists
+     ```
+
+These steps ensure the proper installation and configuration of `win32yank` as the default clipboard tool, avoiding conflicts with `xclip` and/or`xsel`.
 
 ## Neovim Plugin Installation
 
-1. **Open Neovim:**
+### 1. **Open Neovim:**
 
-   ```bash
-   nvim
-   ```
+```bash
+nvim
+```
 
-2. **Allow the plugins to load.**
+### 2. **Allow the plugins to load.**
 
-   You can issue the command `:Lazy` to view the progress
+You can issue the command `:Lazy` to view the progress
 
-   Once the plugins are installed, exit Neovim.
+Once the plugins are installed, exit Neovim.
 
-3. **Compile the ES7/Javascript/React snippets plugin:**
+### 3. **Compile the ES7 snippets plugin:**
 
-   ```bash
-   cd ~/.local/share/nvim/lazy/vscode-es7-javascript-react-snippets
-   yarn install --frozen-lockfile && yarn compile
-   ```
+```bash
+cd ~/.local/share/nvim/lazy/vscode-es7-javascript-react-snippets
+yarn install --frozen-lockfile && yarn compile
+```
 
-   This step is crucial for the proper functioning of the snippets plugin.
+This step is crucial for the proper functioning of the snippets plugin.
 
-4. **Customize Your Language Server Protocol (LPS), Linters and Formatters Installation:**
+### 4. **Language Servers Customizations:**
 
-   Open up Mason using the command `:Mason` to install your preferred LPS, Linters and Formatters and tailor it to your specific needs. This allows you to customize and optimize your Language Server Protocol setup for an enhanced coding experience.
+To add more language servers and debug adapters to the ones I've configured, check out the [lsp server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md), [linters](https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#Usage), [formatters](https://github.com/stevearc/conform.nvim#Setup) and [debug adapter](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation) configuration guides.
 
-5. **nvim-jdtls Configuration**
+You can use `Mason` (opened with the command `:Mason`) to seamlessly install the configured servers. You can also use Mason to ensure certain servers, formatters, linters, and DAPs are installed. Check out the [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim#Configuration), [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim#Configuration) and [mason-nvim-dap](https://github.com/jay-babu/mason-nvim-dap.nvim#Configuration) configuration guides for more information on this.
 
-   Checkout [my nvim-jdtls blog post](https://justicenyaga.me/posts/202402-configuring-java-lsp-for-neovim-with-nvim-jdtls) on how to configure the Java LSP
+### 5. **_For Java Developers:_**
 
-6. **_For WSL users_: To interact with system clipboard**, uncomment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua`
+Download and setup the `java-debug` extension. Install it on your neovim data folder `~/.local/share/nvim` using the following commands:
 
-   ```lua
-   -- vim.g.clipboard = {
-   --   name = "win32yank-wsl",
-   --   copy = {
-   --     ["+"] = "win32yank.exe -i --crlf",
-   --     ["*"] = "win32yank.exe -i --crlf",
-   --   },
-   --   paste = {
-   --     ["+"] = "win32yank.exe -o --lf",
-   --     ["*"] = "win32yank.exe -o --lf",
-   --   },
-   --   cache_enabled = true,
-   -- }
-   ```
+```bash
+git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
+cd ~/.local/share/nvim/java-debug
+./mvnw clean install
+```
+
+### 6. **_For Non-WSL users_:**
+
+Comment the wsl clipboard block on `~/.config/nvim/lua/justice/core/options.lua` if you are not using WSL.
+
+```lua
+vim.g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+  cache_enabled = true,
+}
+```
+
+## Conclusions
 
 That's it! Your Neovim environment is now configured and ready for use. Customize further based on your preferences, and happy coding!
+
+<br/>
 
 ## Recommendations
 
