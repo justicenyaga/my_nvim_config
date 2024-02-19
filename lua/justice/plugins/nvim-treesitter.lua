@@ -37,6 +37,7 @@ return {
           "lua",
           "dockerfile",
           "gitignore",
+          "java",
         },
         incremental_selection = {
           enable = true,
