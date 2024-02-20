@@ -20,6 +20,9 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- keymap.set("i", "[<CR>", "[<CR>]<Esc>ko<Tab>", { noremap = true, silent = true })
 -- keymap.set("i", "(<CR>", "()<CR><Esc>ko<Tab>", { noremap = true, silent = true })
 
+-- Select All
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- increment/decrement numbers
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
