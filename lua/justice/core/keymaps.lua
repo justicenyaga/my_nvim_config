@@ -21,8 +21,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- keymap.set("i", "(<CR>", "()<CR><Esc>ko<Tab>", { noremap = true, silent = true })
 
 -- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
