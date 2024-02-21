@@ -68,7 +68,6 @@ return {
       -- list of debuger adapters for mason to install
       ensure_installed = {
         "delve", -- Go debugger
-        "node2", -- Node debugger
       },
     })
   end,
