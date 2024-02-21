@@ -8,7 +8,11 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
-    "dsznajder/vscode-es7-javascript-react-snippets", -- es7/react/redux snippets
+    -- es7/react/redux snippets
+    {
+      "dsznajder/vscode-es7-javascript-react-snippets",
+      build = "yarn install --frozen-lockfile && yarn compile",
+    },
   },
   config = function()
     local cmp = require("cmp")
