@@ -6,6 +6,18 @@
         "path": "./javascript.json"
       },
       {
+        "language": "typescript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./javascript.json"
+      },
+      {
         "language": "java",
         "path": "./java.json"
       }
