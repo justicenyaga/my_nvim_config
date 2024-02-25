@@ -83,6 +83,7 @@ return {
     keymap.set("n", "<leader>gzP", ":Git stash pop<Space>", map_opts2) -- Populate pop stash
     keymap.set("n", "<leader>gzd", ":Git stash drop<CR>", map_opts2) -- Drop the top most stash
     keymap.set("n", "<leader>gzD", ":Git stash drop<Space>", map_opts2) -- Populate drop stash
+    keymap.set("n", "<leader>gzl", ":Git stash list<CR>", map_opts2) -- List all the stashes
     keymap.set("n", "<leader>gzo", ":Git stash<Space>", map_opts2) -- Populate "git stash "
 
     -- Rebase
