@@ -108,8 +108,8 @@ return {
     -- Reset
     keymap.set("n", "<leader>grh", ":Git reset HEAD^<CR>", map_opts2) -- Reset the last commit
     keymap.set("n", "<leader>gRh", ":Git reset --hard HEAD^<CR>", map_opts2) -- Hard reset the last commit
-    keymap.set("n", "<leader>gri", ":Git reset HEAD~<Space>", map_opts2) -- Populate reset from a given commit count from HEAD
-    keymap.set("n", "<leader>gRi", ":Git reset --hard HEAD~<Space>", map_opts2) --  Populate hard reset from a given commit count from HEAD
+    keymap.set("n", "<leader>grk", ":Git reset HEAD~<Space>", map_opts2) -- Populate reset from a given commit count from HEAD
+    keymap.set("n", "<leader>gRk", ":Git reset --hard HEAD~<Space>", map_opts2) --  Populate hard reset from a given commit count from HEAD
     keymap.set("n", "<leader>grO", ":Git reset<Space>", map_opts2) -- Populate git reset
 
     -- Initialize a repo
