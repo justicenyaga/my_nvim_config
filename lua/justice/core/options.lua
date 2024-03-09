@@ -35,6 +35,8 @@ vim.api.nvim_exec(
   false
 )
 
+vim.g.nightflyTransparent = true -- make the background transparent
+
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true

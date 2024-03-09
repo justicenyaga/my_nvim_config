@@ -51,6 +51,7 @@ return {
       top_down = true,
       stages = "fade_in_slide_out",
       render = "minimal",
+      background_colour = "#000000",
     })
   end,
 }
