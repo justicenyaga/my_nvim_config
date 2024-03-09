@@ -158,6 +158,16 @@ return {
           ["<C-w>gf"] = cb("goto_file_tab"), -- Open the file in a new tabpage
           ["<leader>e"] = cb("focus_files"), -- Bring focus to the files panel
           ["<leader>b"] = cb("toggle_files"), -- Toggle the files panel.
+          ["<leader>co"] = actions.conflict_choose("ours"), -- Choose the OURS version of a conflict
+          ["<leader>ct"] = actions.conflict_choose("theirs"), -- Choose the THEIRS version of a conflict
+          ["<leader>cb"] = actions.conflict_choose("base"), -- Choose BASE versions of a conflict
+          ["<leader>ca"] = actions.conflict_choose("all"), -- Choose all versions of a conflict
+          ["dx"] = actions.conflict_choose("none"), -- Delete the conflict region
+          ["<leader>cO"] = actions.conflict_choose_all("ours"), -- Choose the OURS version of a conflict for the whole file
+          ["<leader>cT"] = actions.conflict_choose_all("theirs"), -- Choose the THEIRS version of a conflict for the whole file
+          ["<leader>cB"] = actions.conflict_choose_all("base"), -- Choose BASE versions of a conflict for the whole file
+          ["<leader>cA"] = actions.conflict_choose_all("all"), -- Choose all versions of a conflict for the whole file
+          ["dX"] = actions.conflict_choose_all("none"), -- Delete the conflict region for the whole file
         },
         file_panel = {
           ["j"] = cb("next_entry"), -- Bring the cursor to the next file entry
@@ -180,6 +190,11 @@ return {
           ["i"] = cb("listing_style"), -- Toggle between 'list' and 'tree' views
           ["f"] = cb("toggle_flatten_dirs"), -- Flatten empty subdirectories in tree listing style.
           ["<leader>e"] = cb("focus_files"),
+          ["<leader>cO"] = actions.conflict_choose_all("ours"), -- Choose the OURS version of a conflict for the whole file
+          ["<leader>cT"] = actions.conflict_choose_all("theirs"), -- Choose the THEIRS version of a conflict for the whole file
+          ["<leader>cB"] = actions.conflict_choose_all("base"), -- Choose BASE versions of a conflict for the whole file
+          ["<leader>cA"] = actions.conflict_choose_all("all"), -- Choose all versions of a conflict for the whole file
+          ["dX"] = actions.conflict_choose_all("none"), -- Delete the conflict region for the whole file
         },
         file_history_panel = {
           ["g!"] = cb("options"), -- Open the option panel
