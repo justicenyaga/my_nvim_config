@@ -53,9 +53,11 @@ return {
     keymap.set("n", "<leader>gor", ":Git remote<Space>", map_opts2) -- Populate "git remote "
 
     -- Work Tree (WT) & Staging
-    keymap.set("n", "<leader>ga", ":Git add %:p<CR><CR>", map_opts2) -- Stage the buffer
-    keymap.set("n", "<leader>gw", ":Gwrite<CR><CR>", map_opts2) -- Save and stage the buffer in WT, Checkout buffer in index
+    keymap.set("n", "<leader>gab", ":Git add %:p<CR>", map_opts2) -- Stage the buffer
+    keymap.set("n", "<leader>gub", ":Git restore --staged %:p<CR>", map_opts2) -- Unstage the buffer
+    keymap.set("n", "<leader>gw", ":Gwrite<CR>", map_opts2) -- Save and stage the buffer in WT, Checkout buffer in index
     keymap.set("n", "<leader>gm", ":GMove<Space>", map_opts2) -- Rename and stage the buffer
+    keymap.set("n", "<leader>gx", ":Git restore %:p<CR>", map_opts2) -- Reset the buffer
 
     -- Commit
     keymap.set("n", "<leader>gcc", ':Git commit -m ""<Left>', map_opts2) -- Populate commit with message
