@@ -23,7 +23,7 @@ return {
     end)
 
     -- Go the next marked file in the list.
-    keymap.set("n", "<C-u>", function()
+    keymap.set("n", "<C-n>", function()
       harpoon:list():next()
     end)
 

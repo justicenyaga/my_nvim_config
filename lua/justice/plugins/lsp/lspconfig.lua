@@ -60,6 +60,12 @@ return {
 
       opts.desc = "Restart LSP"
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+      opts.desc = "LSP Document Symbols"
+      keymap.set("n", "<leader>dS", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+
+      opts.desc = "LSP Workspace Symbols"
+      keymap.set("n", "<leader>wS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
