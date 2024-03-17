@@ -19,7 +19,11 @@ return {
 
     -- Toggle open/close of marked files.
     keymap.set("n", "<leader>h", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
+      harpoon.ui:toggle_quick_menu(harpoon:list(), {
+        border = "rounded",
+        title_pos = "center",
+        ui_width_ratio = 0.5,
+      })
     end)
 
     -- Go the next marked file in the list.

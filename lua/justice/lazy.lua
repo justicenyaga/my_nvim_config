@@ -11,14 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-{
-  {import = "justice.plugins"},
-  {import = "justice.plugins.lsp"},
-},
-{
+require("lazy").setup({
+  { import = "justice.plugins" },
+  { import = "justice.plugins.lsp" },
+}, {
   install = {
-    colorscheme = { "nightfly" },
+    colorscheme = { "tokyonight" },
   },
   checker = {
     enabled = true,
@@ -26,5 +24,9 @@ require("lazy").setup(
   },
   change_detection = {
     notify = false,
+  },
+  ui = {
+    size = { width = 0.75, height = 0.7 },
+    border = "rounded",
   },
 })

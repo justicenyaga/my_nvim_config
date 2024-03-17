@@ -12,6 +12,15 @@ return {
   "numToStr/FTerm.nvim",
   config = function()
     local fTerm = require("FTerm")
+
+    fTerm.setup({
+      border = "rounded",
+      dimensions = {
+        height = 0.7,
+        width = 0.65,
+      },
+    })
+
     keymap.set("n", "<C-z>", function()
       -- Toggle the FTerm terminal in normal mode
       fTerm.toggle()
