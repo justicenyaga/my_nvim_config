@@ -32,16 +32,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- appearance
---- Highlight yanked text with autocmd
-vim.api.nvim_exec(
-  [[
-  augroup highlightYankedText
-    autocmd!
-    autocmd TextYankPost * lua vim.highlight.on_yank()
-  augroup END
-]],
-  false
-)
+--- Highlight yanked (copied) text
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 -- vim.g.nightflyTransparent = true -- make the background transparent
 
