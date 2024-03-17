@@ -1,6 +1,6 @@
 local util = require("justice.functions.util")
 
-local api, keymap = vim.api, vim.keymap
+local api = vim.api
 
 local function jump_next()
   api.nvim_feedkeys(":silent! /^[?,M,A,D,U] ", "n", false)
@@ -35,87 +35,89 @@ return {
   "tpope/vim-fugitive",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    local map_opts1 = { noremap = true, silent = true, nowait = true, buffer = false }
-    local map_opts2 = { noremap = true }
+    local function map(mode, l, r, desc)
+      local opts = { noremap = true, desc = desc }
+      vim.keymap.set(mode, l, r, opts)
+    end
 
     -- Status
-    keymap.set("n", "<leader>gs", toggle_status, map_opts1) -- Toggle open/close of status tab
+    map("n", "<leader>gs", toggle_status, "Toggle open/close of git status tab")
 
     -- Remote
-    keymap.set("n", "<leader>gps", ":Git push<CR>", map_opts2) -- Git push
-    keymap.set("n", "<leader>gPs", ":Git push --force<CR>", map_opts2) -- Git push --force
-    keymap.set("n", "<leader>gpl", ":Git pull<CR>", map_opts2) -- Git pull
-    keymap.set("n", "<leader>gPl", ":Git pull --force<CR>", map_opts2) -- Git pull --force
-    keymap.set("n", "<leader>gpu", ":Git push -u<Space>", map_opts2) -- Populate git push set upstream
-    keymap.set("n", "<leader>gra", ":Git remote add<Space>", map_opts2) -- Populate add remote
-    keymap.set("n", "<leader>grd", ":Git remote remove<Space>", map_opts2) -- Populate remove
-    keymap.set("n", "<leader>grl", ":Git remote -v<CR>", map_opts2) -- List all remotes verbosely
-    keymap.set("n", "<leader>gor", ":Git remote<Space>", map_opts2) -- Populate "git remote "
+    map("n", "<leader>gps", ":Git push<CR>", "Git push")
+    map("n", "<leader>gPs", ":Git push --force<CR>", "Git push --force")
+    map("n", "<leader>gpl", ":Git pull<CR>", "Git pull")
+    map("n", "<leader>gPl", ":Git pull --force<CR>", "Git pull --force")
+    map("n", "<leader>gpu", ":Git push -u<Space>", "Populate git push set upstream")
+    map("n", "<leader>gra", ":Git remote add<Space>", "Populate git remote add")
+    map("n", "<leader>grd", ":Git remote remove<Space>", "Populate git remote remove")
+    map("n", "<leader>grl", ":Git remote -v<CR>", "List git remotes verbosely")
+    map("n", "<leader>gor", ":Git remote<Space>", "Populate git remote")
 
     -- Work Tree (WT) & Staging
-    keymap.set("n", "<leader>gab", ":Git add %:p<CR>", map_opts2) -- Stage the buffer
-    keymap.set("n", "<leader>gub", ":Git restore --staged %:p<CR>", map_opts2) -- Unstage the buffer
-    keymap.set("n", "<leader>gw", ":Gwrite<CR>", map_opts2) -- Save and stage the buffer in WT, Checkout buffer in index
-    keymap.set("n", "<leader>gm", ":GMove<Space>", map_opts2) -- Rename and stage the buffer
-    keymap.set("n", "<leader>gx", ":Git restore %:p<CR>", map_opts2) -- Reset the buffer
+    map("n", "<leader>gab", ":Git add %:p<CR>", "Stage the buffer")
+    map("n", "<leader>gub", ":Git restore --staged %:p<CR>", "Unstage the buffer")
+    map("n", "<leader>gw", ":Gwrite<CR>", "Save and stage the buffer")
+    map("n", "<leader>gm", ":GMove<Space>", "Rename and stage the buffer")
+    map("n", "<leader>gx", ":Git restore %:p<CR>", "Reset the buffer")
 
     -- Commit
-    keymap.set("n", "<leader>gcc", ':Git commit -m ""<Left>', map_opts2) -- Populate commit with message
-    keymap.set("n", "<leader>gca", ":Git commit --amend<CR>", map_opts2) -- Modify the previous commit (last commit)
-    keymap.set("n", "<leader>gcm", ":Git commit<Space>", map_opts2) -- Populate git commit
+    map("n", "<leader>gcc", ':Git commit -m ""<Left>', "Populate git commit -m")
+    map("n", "<leader>gca", ":Git commit --amend<CR>", "Ammed the last commit")
+    map("n", "<leader>gcm", ":Git commit<Space>", "Populate git commit")
 
     -- Branch
-    keymap.set("n", "<leader>gbl", ":Git branch<CR>", map_opts2) -- List all the branches
-    keymap.set("n", "<leader>gbv", ":Git branch -vv<CR>", map_opts2) -- List all the branches along with their remote tracking branches
-    keymap.set("n", "<leader>gbo", ":Git branch<Space>", map_opts2) -- Populate "git branch "
-    keymap.set("n", "<leader>gba", ":Git checkout -b<Space>", map_opts2) -- Populate create branch and checkout
-    keymap.set("n", "<leader>gbr", ":Git branch -M<Space>", map_opts2) -- Populate rename branch
-    keymap.set("n", "<leader>gbd", ":Git branch -d<Space>", map_opts2) -- Populate delete branch
-    keymap.set("n", "<leader>gbD", ":Git branch -D<Space>", map_opts2) -- Populate force delete branch
+    map("n", "<leader>gbo", ":Git branch<Space>", "Populate git branch")
+    map("n", "<leader>gbl", ":Git branch<CR>", "List git branches")
+    map("n", "<leader>gbv", ":Git branch -vv<CR>", "List git branch & their remote tracking branches")
+    map("n", "<leader>gba", ":Git checkout -b<Space>", "Populate git checkout -b")
+    map("n", "<leader>gbr", ":Git branch -M<Space>", "Populate rename git branch")
+    map("n", "<leader>gbd", ":Git branch -d<Space>", "Populate delete git branch")
+    map("n", "<leader>gbD", ":Git branch -D<Space>", "Populate force delete git branch")
 
     -- Checkout
-    keymap.set("n", "<leader>gco", ":Git checkout<Space>", map_opts2) -- Populate "git checkout "
+    map("n", "<leader>gco", ":Git checkout<Space>", "Populate git checkout")
 
     -- Stash
-    keymap.set("n", "<leader>gzz", ":Git stash -u<CR>", map_opts2) -- Push stash in both WT and index (including untracked files)
-    keymap.set("n", "<leader>gzw", ":Git stash -u --keep-index<CR>", map_opts2) -- Push stash on WT only (including untracked files)
-    keymap.set("n", "<leader>gza", ":Git stash apply<CR>", map_opts2) -- Apply the top most stash
-    keymap.set("n", "<leader>gzA", ":Git stash apply<Space>", map_opts2) -- Populate apply stash
-    keymap.set("n", "<leader>gzp", ":Git stash pop<CR>", map_opts2) -- Pop the top most stash
-    keymap.set("n", "<leader>gzP", ":Git stash pop<Space>", map_opts2) -- Populate pop stash
-    keymap.set("n", "<leader>gzd", ":Git stash drop<CR>", map_opts2) -- Drop the top most stash
-    keymap.set("n", "<leader>gzD", ":Git stash drop<Space>", map_opts2) -- Populate drop stash
-    keymap.set("n", "<leader>gzl", ":Git stash list<CR>", map_opts2) -- List all the stashes
-    keymap.set("n", "<leader>gzo", ":Git stash<Space>", map_opts2) -- Populate "git stash "
+    map("n", "<leader>gzz", ":Git stash -u<CR>", "Push stash in both WT and index (including untracked files)")
+    map("n", "<leader>gzw", ":Git stash -u --keep-index<CR>", "Push stash on WT only (including untracked files)")
+    map("n", "<leader>gza", ":Git stash apply<CR>", "Apply the top most stash")
+    map("n", "<leader>gzA", ":Git stash apply<Space>", "Populate apply stash")
+    map("n", "<leader>gzp", ":Git stash pop<CR>", "Pop the top most stash")
+    map("n", "<leader>gzP", ":Git stash pop<Space>", "Populate pop stash")
+    map("n", "<leader>gzd", ":Git stash drop<CR>", "Drop the top most stash")
+    map("n", "<leader>gzD", ":Git stash drop<Space>", "Populate drop stash")
+    map("n", "<leader>gzl", ":Git stash list<CR>", "List all the stashes")
+    map("n", "<leader>gzo", ":Git stash<Space>", "Populate git stash")
 
     -- Rebase
-    keymap.set("n", "<leader>gri", ":Git rebase -i<Space>", map_opts2) -- Populate interactive rebase
-    keymap.set("n", "<leader>grn", ":Git rebase -i HEAD~<Space>", map_opts2) -- Populate interactive rebase with count from HEAD
-    keymap.set("n", "<leader>grr", ":Git rebase --continue<CR>", map_opts2) -- Continue with current rebase
-    keymap.set("n", "<leader>grx", ":Git rebase --abort<CR>", map_opts2) -- Abort the current rebase
-    keymap.set("n", "<leader>gre", ":Git rebase --edit-todo<CR>", map_opts2) -- Edit todo list of current rebase
-    keymap.set("n", "<leader>gro", ":Git rebase<Space>", map_opts2) -- Populate "git rebase "
+    map("n", "<leader>gri", ":Git rebase -i<Space>", "Populate interactive rebase")
+    map("n", "<leader>grn", ":Git rebase -i HEAD~<Space>", "Populate interactive rebase with count from HEAD")
+    map("n", "<leader>grr", ":Git rebase --continue<CR>", "Continue with current rebase")
+    map("n", "<leader>grx", ":Git rebase --abort<CR>", "Abort the current rebase")
+    map("n", "<leader>gre", ":Git rebase --edit-todo<CR>", "Edit todo list of current rebase")
+    map("n", "<leader>gro", ":Git rebase<Space>", "Populate git rebase")
 
     -- Merge
-    keymap.set("n", "<leader>gmo", ":Git merge<Space>", map_opts2) -- Populate "git merge "
-    keymap.set("n", "<leader>gmt", ":Git mergetool<CR>", map_opts2) -- Open merge tool **I prefer to use diffview to easily fix merge conficts**
-    keymap.set("n", "<leader>gmr", ":Git merge --continue<CR>", map_opts2) -- Continue with the merge
-    keymap.set("n", "<leader>gmx", ":Git merge --abort<CR>", map_opts2) -- Abort merge
+    map("n", "<leader>gmo", ":Git merge<Space>", "Populate git merge")
+    map("n", "<leader>gmt", ":Git mergetool<CR>", "Open merge tool") -- I prefer to use diffview to easily fix merge conficts
+    map("n", "<leader>gmr", ":Git merge --continue<CR>", "Continue with the merge")
+    map("n", "<leader>gmx", ":Git merge --abort", "Abort merge")
 
     -- Cherry Pick
-    keymap.set("n", "<leader>gyi", ":Git cherry-pick<Space>", map_opts2) -- Populate "git cherry-pick "
-    keymap.set("n", "<leader>gyr", ":Git cherry-pick --continue<CR>", map_opts2) -- Continue with the cherry-pick (after fixing conficts)
-    keymap.set("n", "<leader>gyx", ":Git cherry-pick --abort<CR>", map_opts2) -- Abort cherry-pick (due to conflicts)
+    map("n", "<leader>gyi", ":Git cherry-pick<Space>", "Populate git cherry-pick")
+    map("n", "<leader>gyr", ":Git cherry-pick --continue<CR>", "Continue with the cherry-pick")
+    map("n", "<leader>gyx", ":Git cherry-pick --abort<CR>", "Abort cherry-pick")
 
     -- Reset
-    keymap.set("n", "<leader>grh", ":Git reset HEAD^<CR>", map_opts2) -- Reset the last commit
-    keymap.set("n", "<leader>gRh", ":Git reset --hard HEAD^<CR>", map_opts2) -- Hard reset the last commit
-    keymap.set("n", "<leader>grk", ":Git reset HEAD~<Space>", map_opts2) -- Populate reset from a given commit count from HEAD
-    keymap.set("n", "<leader>gRk", ":Git reset --hard HEAD~<Space>", map_opts2) --  Populate hard reset from a given commit count from HEAD
-    keymap.set("n", "<leader>grO", ":Git reset<Space>", map_opts2) -- Populate git reset
+    map("n", "<leader>grh", ":Git reset HEAD^<CR>", "Reset the last commit")
+    map("n", "<leader>gRh", ":Git reset --hard HEAD^<CR>", "Hard reset the last commit")
+    map("n", "<leader>grk", ":Git reset HEAD~<Space>", "Populate reset from a given commit count from HEAD")
+    map("n", "<leader>gRk", ":Git reset --hard HEAD~<Space>", "Populate hard reset from a given commit count from HEAD")
+    map("n", "<leader>grO", ":Git reset<Space>", "Populate git reset")
 
     -- Initialize a repo
-    keymap.set("n", "<leader>gi", ":Git init<CR>", map_opts2) -- Create a repo
+    map("n", "<leader>gi", ":Git init<CR>", "Create a repo")
   end,
   jump_next = jump_next,
   jump_prev = jump_prev,

@@ -148,18 +148,18 @@ return {
       dap.continue()
       dapui.toggle({})
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
-    end)
+    end, { desc = "Start debugging session" })
 
-    keymap.set("n", "<leader>dl", require("dap.ui.widgets").hover)
-    keymap.set("n", "<leader>dc", dap.continue)
-    keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-    keymap.set("n", "<leader>do", dap.step_over)
-    keymap.set("n", "<leader>di", dap.step_into)
-    keymap.set("n", "<leader>dO", dap.step_out)
+    keymap.set("n", "<leader>dl", require("dap.ui.widgets").hover, { desc = "" })
+    keymap.set("n", "<leader>dc", dap.continue, { desc = "Debugging Continue" })
+    keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint on a Line" })
+    keymap.set("n", "<leader>do", dap.step_over, { desc = "Step Over" })
+    keymap.set("n", "<leader>di", dap.step_into, { desc = "Step into" })
+    keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
     keymap.set("n", "<leader>dC", function()
       dap.clear_breakpoints()
       notify("Breakpoints cleared", "warn")
-    end)
+    end, { desc = "Clear all Breakpoints" })
 
     -- Close debugger and clear breakpoints
     keymap.set("n", "<leader>de", function()
@@ -167,8 +167,8 @@ return {
       dapui.toggle({})
       dap.terminate()
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) --
-      notify("Debugger session ended", "warn")
-    end)
+      notify("Debug session ended", "warn")
+    end, { desc = "Close debugger and end debugging session" })
 
     dapui.setup({
       icons = { expanded = "▾", collapsed = "▸" },

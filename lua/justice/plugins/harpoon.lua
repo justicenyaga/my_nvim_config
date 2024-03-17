@@ -12,48 +12,40 @@ return {
     harpoon:setup()
 
     -- Keymaps:
-    -- Mark the current buffer.
     keymap.set("n", "<leader>a", function()
       harpoon:list():append()
-    end)
+    end, { desc = "Add current file to harpoon list" })
 
-    -- Toggle open/close of marked files.
     keymap.set("n", "<leader>h", function()
       harpoon.ui:toggle_quick_menu(harpoon:list(), {
         border = "rounded",
         title_pos = "center",
         ui_width_ratio = 0.5,
       })
-    end)
+    end, { desc = "Toggle open/close of harpoon list" })
 
-    -- Go the next marked file in the list.
     keymap.set("n", "<C-n>", function()
       harpoon:list():next()
-    end)
+    end, { desc = "Go the next marked file in the harpoon list" })
 
-    -- Go the previous marked file in the list.
     keymap.set("n", "<C-p>", function()
       harpoon:list():prev()
-    end)
+    end, { desc = "Go the previous marked file in the harpoon list" })
 
-    -- Open the first file in the list.
     keymap.set("n", "<leader>1", function()
       harpoon:list():select(1)
-    end)
+    end, { desc = "Open the first file in the harpoon list" })
 
-    -- Open the second file in the list.
     keymap.set("n", "<leader>2", function()
       harpoon:list():select(2)
-    end)
+    end, { desc = "Open the second file in the harpoon list" })
 
-    -- Open the third file in the list.
     keymap.set("n", "<leader>3", function()
       harpoon:list():select(3)
-    end)
+    end, { desc = "Open the third file in the harpoon list" })
 
-    -- Open the fourth file in the list.
     keymap.set("n", "<leader>4", function()
       harpoon:list():select(4)
-    end)
+    end, { desc = "Open the fourth file in the harpoon list" })
   end,
 }

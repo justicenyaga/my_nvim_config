@@ -22,23 +22,17 @@ return {
     })
 
     keymap.set("n", "<C-z>", function()
-      -- Toggle the FTerm terminal in normal mode
       fTerm.toggle()
-      -- Create a namespace for the current buffer's filetype
-      -- local ns = api.nvim_create_namespace(vim.bo.filetype)
-      -- Set the highlight namespace for the current window
-      -- api.nvim_win_set_hl_ns(0, ns)
-      -- api.nvim_set_hl(ns, "Normal", { bg = "#15151c" })
-      -- api.nvim_set_hl(ns, "Normal")
-    end, {})
+    end, { desc = "Toggle Fterm terminal in normal mode" })
+
     keymap.set("t", "<C-z>", function()
-      -- Toggle the FTerm terminal in terminal mode
       api.nvim_feedkeys(
         api.nvim_replace_termcodes("<C-\\><C-n>:lua require('FTerm').toggle()<CR>", false, true, true),
         "n",
         false
       )
-    end)
+    end, { desc = "Toggle Fterm terminal in terminal mode" })
+
     -- -- Configure FTerm settings
     -- require("FTerm").setup({
     --   border = "none",
