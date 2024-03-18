@@ -4,15 +4,15 @@ This repository contains my neovim configuration, including key mappings, plugin
 
 ## Screenshots
 
-![Editor](https://proshop.blob.core.windows.net/proshop-container/nvim.png)
+![Editor](https://justicenyaga.blob.core.windows.net/justicenyaga/nvim.png)
 
-![Diff View](https://proshop.blob.core.windows.net/proshop-container/diffview.png)
+![Diff View](https://justicenyaga.blob.core.windows.net/justicenyaga/diffview.png)
 
-![Git Graph](https://proshop.blob.core.windows.net/proshop-container/git-graph.png)
+![Git Graph](https://justicenyaga.blob.core.windows.net/justicenyaga/git-graph.png)
 
-![Debugging](https://proshop.blob.core.windows.net/proshop-container/debugging.png)
+![Debugging](https://justicenyaga.blob.core.windows.net/justicenyaga/debugging.png)
 
-![Todo](https://proshop.blob.core.windows.net/proshop-container/todo.png)
+![Todo](https://justicenyaga.blob.core.windows.net/justicenyaga/todo.png)
 
 ## Features
 
@@ -37,7 +37,8 @@ This repository contains my neovim configuration, including key mappings, plugin
 - Fold management with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - Todo comments via [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - Beautiful status bar via [lualine](https://github.com/nvim-lualine/lualine.nvim)
-- [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorscheme
+- Beautiful cmdline and popupmenus from [noice.nvim](https://github.com/folke/noice.nvim)
+- [tokyonight](https://github.com/folke/tokyonight.nvim.git) colorscheme
 - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) file explorer with [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for the icons
 - Beautiful UI via [dressing.nvim](https://github.com/stevearc/dressing.nvim)
 - Animated GUI notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
