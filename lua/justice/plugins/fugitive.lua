@@ -40,14 +40,24 @@ return {
       vim.keymap.set(mode, l, r, opts)
     end
 
+    local function notify_cmd(km, cmd, title, msg)
+      map("n", km, function()
+        vim.notify(msg, "info", { title = title, timeout = 500 })
+
+        vim.defer_fn(function()
+          vim.cmd(cmd)
+        end, 500)
+      end, cmd)
+    end
+
     -- Status
     map("n", "<leader>gs", toggle_status, "Toggle open/close of git status tab")
 
     -- Remote
-    map("n", "<leader>gps", ":Git push<CR>", "Git push")
-    map("n", "<leader>gPs", ":Git push --force<CR>", "Git push --force")
-    map("n", "<leader>gpl", ":Git pull<CR>", "Git pull")
-    map("n", "<leader>gPl", ":Git pull --force<CR>", "Git pull --force")
+    notify_cmd("<leader>gps", "Git push", "Git Push", "Pushing...")
+    notify_cmd("<leader>gPs", "Git push --force", "Git Push", "Force Pushing...")
+    notify_cmd("<leader>gpl", "Git pull", "Git Pull", "Pulling...")
+    notify_cmd("<leader>gPl", "Git push --force", "Git Pull", "Force Pulling...")
     map("n", "<leader>gpu", ":Git push -u<Space>", "Populate git push set upstream")
     map("n", "<leader>gra", ":Git remote add<Space>", "Populate git remote add")
     map("n", "<leader>grd", ":Git remote remove<Space>", "Populate git remote remove")
