@@ -29,6 +29,7 @@ This repository contains my neovim configuration, including key mappings, plugin
 - Git decorations to reflect changes in files using [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - Git integration via [fugitive](https://github.com/tpope/vim-fugitive)
 - Git branch/commit/diff viewing via [diffview](https://github.com/sindrets/diffview.nvim)
+- User-defined mapping hint via [which-key.nvim](https://github.com/folke/which-key.nvim.git)
 - Beautiful and powerful git graph via [vim-flog](https://github.com/rbong/vim-flog)
 - [copilot](https://github.com/zbirenbaum/copilot.lua.git) AI suggestions
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) and [VS Code ES7](https://github.com/r5n-dev/vscode-react-javascript-snippets) snippets
