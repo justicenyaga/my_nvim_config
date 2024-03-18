@@ -65,11 +65,11 @@ return {
     map("n", "<leader>gor", ":Git remote<Space>", "Populate git remote")
 
     -- Work Tree (WT) & Staging
-    map("n", "<leader>gab", ":Git add %:p<CR>", "Stage the buffer")
-    map("n", "<leader>gub", ":Git restore --staged %:p<CR>", "Unstage the buffer")
-    map("n", "<leader>gw", ":Gwrite<CR>", "Save and stage the buffer")
-    map("n", "<leader>gm", ":GMove<Space>", "Rename and stage the buffer")
-    map("n", "<leader>gx", ":Git restore %:p<CR>", "Reset the buffer")
+    map("n", "<leader>gab", ":Git add %:p<CR>", "Stage current buffer")
+    map("n", "<leader>gub", ":Git restore --staged %:p<CR>", "Unstage current buffer")
+    map("n", "<leader>gw", ":Gwrite<CR>", "Save and stage current buffer")
+    map("n", "<leader>gm", ":GMove<Space>", "Rename and stage current buffer")
+    map("n", "<leader>gx", ":Git restore %:p<CR>", "Reset current buffer")
 
     -- Commit
     map("n", "<leader>gcc", ':Git commit -m ""<Left>', "Populate git commit -m")
