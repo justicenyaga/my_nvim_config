@@ -45,3 +45,7 @@ keymap.set("n", "<leader>rw", ":%s//gc<Left><Left><Left>", { desc = "Find and Re
 
 -- Git Graph
 keymap.set("n", "<leader>gg", ":Flog<CR>", { noremap = true, silent = true, desc = "Open Git Graph" })
+
+-- Live Server
+keymap.set("n", "<leader>lss", "<cmd>LiveServerStart<cr>", { desc = "Start live server" })
+keymap.set("n", "<leader>lse", "<cmd>LiveServerStop<cr>", { desc = "Stop live server" })
