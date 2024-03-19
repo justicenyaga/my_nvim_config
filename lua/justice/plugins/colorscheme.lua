@@ -1,4 +1,4 @@
--- custom highlight group for readonly variables and parameters declarations
+-- custom highlight group for readonly variables
 vim.api.nvim_create_autocmd("LspTokenUpdate", {
   callback = function(args)
     local token = args.data.token
@@ -7,9 +7,7 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
       and token.modifiers.readonly
       and token.modifiers.declaration
 
-    local parameter_declaration = token.type == "parameter" and token.modifiers.declaration
-
-    if readonly_variable_declaration or parameter_declaration then
+    if readonly_variable_declaration then
       vim.lsp.semantic_tokens.highlight_token(token, args.buf, args.data.client_id, "@custom.readonly.declaration")
     end
   end,
