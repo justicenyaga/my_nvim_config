@@ -21,7 +21,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- keymap.set("i", "(<CR>", "()<CR><Esc>ko<Tab>", { noremap = true, silent = true })
 
 -- Select All
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select All" })
+
+-- Delete word backward
+keymap.set("i", "<C-d>", "<C-w>", { noremap = true, desc = "Delete word backward" })
 
 -- increment/decrement numbers
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -33,6 +36,13 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) 
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- Resize window
+keymap.set("n", "<up>", "<C-w>+", { desc = "Increase window height" })
+keymap.set("n", "<down>", "<C-w>-", { desc = "Decrease window height" })
+keymap.set("n", "<right>", "<c-w>>", { desc = "Increase window width" })
+keymap.set("n", "<left>", "<c-w><", { desc = "Decrease window width" })
+
+-- Tab management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
