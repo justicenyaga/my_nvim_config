@@ -25,6 +25,9 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
+      window = {
+        documentation = cmp.config.window.bordered(),
+      },
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
@@ -40,7 +43,7 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-c>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-y>"] = cmp.mapping.confirm({ select = false }),
         ["<C-l>"] = cmp.mapping(function()
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
