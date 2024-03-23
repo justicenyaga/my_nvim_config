@@ -58,6 +58,7 @@ return {
     notify_cmd("<leader>gPs", "Git push --force", "Git Push", "Force Pushing...")
     notify_cmd("<leader>gpl", "Git pull", "Git Pull", "Pulling...")
     notify_cmd("<leader>gPl", "Git push --force", "Git Pull", "Force Pulling...")
+    notify_cmd("<leader>gpo", "Git push -u origin main", "Git Push", "Pushing to origin (main)...")
     map("n", "<leader>gpu", ":Git push -u<Space>", "Populate git push set upstream")
     map("n", "<leader>gra", ":Git remote add<Space>", "Populate git remote add")
     map("n", "<leader>grd", ":Git remote remove<Space>", "Populate git remote remove")
