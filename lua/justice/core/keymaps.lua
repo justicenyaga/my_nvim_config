@@ -59,3 +59,6 @@ keymap.set("n", "<leader>gg", ":Flog<CR>", { noremap = true, silent = true, desc
 -- Live Server
 keymap.set("n", "<leader>lss", "<cmd>LiveServerStart<cr>", { desc = "Start live server" })
 keymap.set("n", "<leader>lse", "<cmd>LiveServerStop<cr>", { desc = "Stop live server" })
+
+-- WakaTime
+keymap.set("n", "<leader>wt", ":WakaTimeToday<cr>", { desc = "Echo today's coding time" })
