@@ -2,6 +2,10 @@ local util = require("justice.functions.util")
 
 local api = vim.api
 
+vim.api.nvim_create_user_command("Browse", function(opts)
+  vim.fn.system({ "xdg-open", opts.fargs[1] })
+end, { nargs = 1 })
+
 local function jump_next()
   api.nvim_feedkeys(":silent! /^[?,M,A,D,U] ", "n", false)
   util.press_enter()
@@ -33,7 +37,10 @@ end
 
 return {
   "tpope/vim-fugitive",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "tpope/vim-rhubarb",
+  },
   config = function()
     local function map(mode, l, r, desc)
       local opts = { noremap = true, desc = desc }
@@ -71,6 +78,9 @@ return {
     map("n", "<leader>gw", ":Gwrite<CR>", "Save and stage current buffer")
     map("n", "<leader>gm", ":GMove<Space>", "Rename and stage current buffer")
     map("n", "<leader>gx", ":Git restore %:p<CR>", "Reset current buffer")
+
+    -- Objects (file, blob, tree, commit, tag, etc)
+    map("n", "<leader>gou", ":GBrowse<CR>", "Open git object in browser at upstream hosting provider")
 
     -- Commit
     map("n", "<leader>gcc", ':Git commit -m ""<Left>', "Populate git commit -m")
