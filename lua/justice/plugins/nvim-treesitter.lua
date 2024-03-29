@@ -28,6 +28,8 @@ return {
           "javascript",
           "typescript",
           "tsx",
+          "c",
+          "cpp",
           "go",
           "python",
           "yaml",

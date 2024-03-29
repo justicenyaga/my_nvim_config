@@ -60,6 +60,7 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint", -- python linter
+        "clang-format", -- c/cpp formatter
         "eslint_d", -- js linter
         "golangci-lint", -- Go linter
         "gofumpt", -- Go formatter

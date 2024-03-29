@@ -13,6 +13,8 @@ return {
         typescriptreact = { "prettier" },
         svelte = { "prettier" },
         css = { "prettier" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
         html = { "prettier" },
         json = { "prettier" },
         yaml = { "prettier" },
