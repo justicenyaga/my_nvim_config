@@ -30,17 +30,17 @@ return {
     })
 
     dap.configurations = {
-      java = {
+      go = {
         {
-          type = "java",
+          type = "go",
           name = "Debug",
           request = "launch",
           program = "${file}",
         },
       },
-      go = {
+      java = {
         {
-          type = "go",
+          type = "java",
           name = "Debug",
           request = "launch",
           program = "${file}",

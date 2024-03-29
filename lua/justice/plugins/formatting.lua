@@ -7,22 +7,22 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
         c = { "clang-format" },
         cpp = { "clang-format" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
+        css = { "prettier" },
         go = { "goimports", "gofumpt" },
+        graphql = { "prettier" },
+        html = { "prettier" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        json = { "prettier" },
         lua = { "stylua" },
+        markdown = { "prettier" },
         python = { "isort", "black" },
+        svelte = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        yaml = { "prettier" },
       },
       formatters = {
         prettier = {

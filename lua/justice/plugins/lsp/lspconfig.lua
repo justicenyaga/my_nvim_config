@@ -94,31 +94,10 @@ return {
       ["jdtls"] = noop,
     })
 
-    -- configure html server
-    lspconfig["html"].setup({
+    -- configure clangd server
+    lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-    })
-
-    -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      handlers = {
-        ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
-          if result.diagnostics ~= nil then
-            local idx = 1
-            while idx <= #result.diagnostics do
-              if result.diagnostics[idx].code == 80001 then
-                table.remove(result.diagnostics, idx)
-              else
-                idx = idx + 1
-              end
-            end
-          end
-          vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
-        end,
-      },
     })
 
     -- configure css server
@@ -127,53 +106,11 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure tailwindcss server
-    lspconfig["tailwindcss"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure svelte server
-    lspconfig["svelte"].setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            if client.name == "svelte" then
-              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-            end
-          end,
-        })
-      end,
-    })
-
-    -- configure prisma orm server
-    lspconfig["prismals"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure graphql language server
-    lspconfig["graphql"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
-
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    })
-
-    -- configure python server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     -- configure go server (gopls)
@@ -193,6 +130,19 @@ return {
           -- staticcheck = true,
         },
       },
+    })
+
+    -- configure graphql language server
+    lspconfig["graphql"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+    })
+
+    -- configure html server
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     -- configure lua server (with special settings)
@@ -216,10 +166,60 @@ return {
       },
     })
 
-    -- configure clangd server
-    lspconfig["clangd"].setup({
+    -- configure prisma orm server
+    lspconfig["prismals"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    -- configure python server
+    lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure svelte server
+    lspconfig["svelte"].setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        vim.api.nvim_create_autocmd("BufWritePost", {
+          pattern = { "*.js", "*.ts" },
+          callback = function(ctx)
+            if client.name == "svelte" then
+              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+            end
+          end,
+        })
+      end,
+    })
+
+    -- configure tailwindcss server
+    lspconfig["tailwindcss"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure typescript server with plugin
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      handlers = {
+        ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+          if result.diagnostics ~= nil then
+            local idx = 1
+            while idx <= #result.diagnostics do
+              if result.diagnostics[idx].code == 80001 then
+                table.remove(result.diagnostics, idx)
+              else
+                idx = idx + 1
+              end
+            end
+          end
+          vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+        end,
+      },
     })
   end,
 }
