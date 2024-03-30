@@ -32,7 +32,14 @@ return {
       set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
     end)
 
-    vim.g.rainbow_delimiters = { highlight = highlight }
+    vim.g.rainbow_delimiters = {
+      query = {
+        javascript = "rainbow-parens", -- highlight parentheses without react tags
+        tsx = "rainbow-parens",
+        typescript = "rainbow-parens",
+      },
+      highlight = highlight,
+    }
 
     require("mini.indentscope").setup({
       draw = {
