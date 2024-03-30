@@ -2,6 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   dependencies = {
     "HiPhish/rainbow-delimiters.nvim",
+    { "echasnovski/mini.nvim", version = "*" },
   },
   event = { "BufReadPre", "BufNewFile" },
   main = "ibl",
@@ -33,9 +34,27 @@ return {
 
     vim.g.rainbow_delimiters = { highlight = highlight }
 
+    require("mini.indentscope").setup({
+      draw = {
+        animation = function()
+          return 0
+        end, -- disable animation
+        delay = 0,
+      },
+      options = {
+        border = "top",
+        try_as_border = true,
+      },
+      symbol = "▏",
+    })
+
     require("ibl").setup({
-      indent = { char = "▏" },
+      indent = {
+        char = "▏",
+        smart_indent_cap = false,
+      },
       scope = {
+        enabled = false,
         show_start = false,
         show_end = false,
         highlight = highlight,
