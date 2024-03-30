@@ -24,7 +24,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select All" })
 
 -- Delete word backward
-keymap.set("i", "<M-BS>", "<C-w>", { noremap = true, desc = "Delete word backward" })
+keymap.set("i", "<C-h>", "<C-w>", { noremap = true, desc = "Delete word backward using Ctrl + Backspace" })
 
 -- increment/decrement numbers
 keymap.set("n", "+", "<C-a>", { desc = "Increment number" }) -- increment

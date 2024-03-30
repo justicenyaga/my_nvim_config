@@ -44,12 +44,12 @@ return {
         ["<C-c>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
         ["<C-y>"] = cmp.mapping.confirm({ select = false }),
-        ["<C-l>"] = cmp.mapping(function()
+        ["<C-n>"] = cmp.mapping(function()
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           end
         end, { "i", "s" }),
-        ["<C-h>"] = cmp.mapping(function()
+        ["<C-p>"] = cmp.mapping(function()
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           end
