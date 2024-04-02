@@ -28,6 +28,11 @@ return {
       window = {
         documentation = cmp.config.window.bordered(),
       },
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
