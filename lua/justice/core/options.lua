@@ -74,5 +74,8 @@ opt.clipboard = "unnamedplus" -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
+-- session
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- turn off swapfile
 opt.swapfile = false
