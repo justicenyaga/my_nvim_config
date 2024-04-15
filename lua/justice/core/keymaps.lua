@@ -61,4 +61,4 @@ keymap.set("n", "<leader>lss", "<cmd>LiveServerStart<cr>", { desc = "Start live 
 keymap.set("n", "<leader>lse", "<cmd>LiveServerStop<cr>", { desc = "Stop live server" })
 
 -- WakaTime
-keymap.set("n", "<leader>wt", ":WakaTimeToday<cr>", { desc = "Echo today's coding time" })
+keymap.set("n", "<leader>ct", ":WakaTimeToday<cr>", { desc = "Echo today's coding time" })
