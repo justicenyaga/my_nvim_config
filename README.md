@@ -31,6 +31,9 @@ This repository contains my neovim configuration, including key mappings, plugin
 - Git branch/commit/diff viewing via [diffview](https://github.com/sindrets/diffview.nvim)
 - User-defined mapping hint via [which-key.nvim](https://github.com/folke/which-key.nvim.git)
 - Beautiful and powerful git graph via [vim-flog](https://github.com/rbong/vim-flog)
+- Identation guides via [ident-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- Rainbow delimiter pairs via [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim)
+- Code Runner via [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim)
 - [copilot](https://github.com/zbirenbaum/copilot.lua.git) AI suggestions
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) and [VS Code ES7](https://github.com/r5n-dev/vscode-react-javascript-snippets) snippets
 - Faster code commenting with [Comment.nvim](https://github.com/numToStr/Comment.nvim)
