@@ -77,5 +77,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- session
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+opt.shortmess:append("IWs") -- disable intro message and search hit BOTTOM, TOP messages
+
 -- turn off swapfile
 opt.swapfile = false
