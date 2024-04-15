@@ -5,7 +5,7 @@ return {
     require("code_runner").setup({
       term = {
         position = "vert",
-        size = 50,
+        size = 60,
       },
       filetype = {
         go = "go run",
