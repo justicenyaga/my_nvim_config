@@ -8,7 +8,10 @@ return {
         size = 60,
       },
       filetype = {
-        go = "go run",
+        go = {
+          "cd $dir &&",
+          "go run $fileName",
+        },
         java = {
           "cd $dir &&",
           "javac $fileName &&",
@@ -17,15 +20,23 @@ return {
         python = "python3 -u",
         javascript = "node",
       },
+      project_path = vim.fn.expand("~/.config/nvim/projects.json"),
     })
 
-    vim.keymap.set("n", "<leader>ex", function()
-      local bufname = vim.fn.bufname("%")
-      if bufname:find("crunner_") then
-        vim.cmd("RunClose")
-      else
-        vim.cmd("RunCode")
+    local function map(cmd)
+      return function()
+        local bufname = vim.fn.bufname("%")
+        if bufname:find("crunner_") then
+          vim.cmd("RunClose")
+        else
+          vim.cmd(cmd)
+        end
       end
-    end, { desc = "Toggle Code Runner" })
+    end
+
+    local keymap = vim.keymap -- for conciseness
+
+    keymap.set("n", "<leader>rf", map("RunCode"), { desc = "Toggle Run File" })
+    keymap.set("n", "<leader>rp", map("RunProject"), { desc = "Toggle Run Project" })
   end,
 }
