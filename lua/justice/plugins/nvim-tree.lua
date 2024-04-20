@@ -48,6 +48,10 @@ return {
       git = {
         ignore = false,
       },
+      notify = {
+        threshold = vim.log.levels.WARN,
+        absolute_path = false,
+      },
     })
 
     -- set keymaps
