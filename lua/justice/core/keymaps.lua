@@ -57,8 +57,7 @@ keymap.set("n", "<leader>rw", ":%s//gc<Left><Left><Left>", { desc = "Find and Re
 keymap.set("n", "<leader>gg", ":Flog<CR>", { noremap = true, silent = true, desc = "Open Git Graph" })
 
 -- Live Server
-keymap.set("n", "<leader>lss", "<cmd>LiveServerStart<cr>", { desc = "Start live server" })
-keymap.set("n", "<leader>lse", "<cmd>LiveServerStop<cr>", { desc = "Stop live server" })
+keymap.set("n", "<leader>ls", "<cmd>LiveServerToggle<cr>", { desc = "Toggle live server" })
 
 -- WakaTime
 keymap.set("n", "<leader>ct", ":WakaTimeToday<cr>", { desc = "Echo today's coding time" })
