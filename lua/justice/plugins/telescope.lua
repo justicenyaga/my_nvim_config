@@ -15,7 +15,9 @@ return {
       defaults = {
         layout_strategy = "horizontal",
         layout_config = {
+          preview_width = 0.60,
           horizontal = {
+            preview_cutoff = 100,
             prompt_position = "top",
           },
         },
