@@ -39,6 +39,7 @@ return {
         typescript = "rainbow-parens",
       },
       highlight = highlight,
+      blacklist = { "html" },
     }
 
     require("mini.indentscope").setup({
